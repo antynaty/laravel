@@ -1,0 +1,31 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+.navbar{
+  margin-bottom: 0px;
+  background-color: rgb(14, 70, 70);
+  .navbar-brand{
+    color: white;
+  }
+  .nav-link{
+    color: white;
+  }
+}
+.big-padding{
+  padding: 30px;
+}
+.blue-grey{
+  background-color: #139696;
+  ;
+}
+.table{
+  background-color: white;
+}
+.white-text{
+  color:white;
+}
