@@ -21,7 +21,6 @@
 }
 .blue-grey{
   background-color: #139696;
-  ;
 }
 .table{
   background-color: white;
@@ -34,4 +33,19 @@
   bottom: 2em;
   right: 2em;
   z-index: 100;
+}
+.red-text {
+  color:red;
+}
+.no-padding {
+  padding: 0px;
+}
+.no-margin {
+  margin: 0px;
+}
+.inline-block{
+  display: inline-block !important;
+}
+.no-transform{
+  text-transform: capitalize !important;
 }
