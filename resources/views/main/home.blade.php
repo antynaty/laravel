@@ -8,5 +8,6 @@
   <div class="container">
     <p>Aqui podras elegir los mejores productos </p>
       {{$name}}
+    <a href="{{url('/products')}}">Productos disponibles</a>
   </div>
 @endsection

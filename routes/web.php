@@ -20,7 +20,11 @@ Route::get('/', 'MainController@home');
 
 Auth::routes();
 
-Route::resource('products','ProductsController');
+Route::resource('/products','ProductsController');
+
+// Route::get('formProduct',function(){
+//   return view('products.create');
+// })->name('formProduct');
 
 /*
 GET /products => index
@@ -33,11 +37,3 @@ DELETE /products/:id => eliminar un producto
 
 */
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('formProduct',function(){
-//   return view('products.create');
-// });
-
-Route::get('formProduct',function(){
-  return view('products.create');
-})->name('formProduct');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -25,7 +26,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view("products.create");
+        $product = new Product;
+        return view("products.create",["product"=>$product]);
     }
 
     /**
@@ -37,6 +39,17 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+        $product = new Product;
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->pricing = $request->pricing;
+        $product->user_id = Auth::user()->id;
+
+        if($product->save()){
+            return redirect(("/products"));
+        }else{
+            return view("products.create");
+        }
     }
 
     /**
@@ -57,8 +70,9 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {  
+        $product = Product::find($id);
+        return view("products.edit",["product"=>$product]);
     }
 
     /**
@@ -71,6 +85,16 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->pricing = $request->pricing;
+
+        if($product->save()){
+            return redirect(("/products"));
+        }else{
+            return view("products.edit",["product"=>$product]);
+        }
     }
 
     /**

@@ -10957,3 +10957,10 @@ a.text-dark:focus {
   color: white;
 }
 
+.floating {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  z-index: 100;
+}
+
