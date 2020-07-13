@@ -25,9 +25,8 @@
 
     <!-- Styles -->
     <!-- load bootstrap from a cdn -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/3.3.7/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
 </head>
