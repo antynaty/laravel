@@ -49,8 +49,14 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto navbar-right">
                         <!-- Authentication Links -->
+                        <li>
+                            <a href="">
+                                Mi carrito
+                                <span class="circle-shopping-cart">{{$shopping_cart->productSize()}}</span>
+                            </a>
+                        </li>
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
