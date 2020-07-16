@@ -49,12 +49,12 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto navbar-right">
+                    <ul class="navbar-nav ml-auto navbar-right " >
                         <!-- Authentication Links -->
-                        <li>
+                        <li class="nav-item">
                             <a href="">
-                                Mi carrito
-                                <span class="circle-shopping-cart">{{$shopping_cart->productSize()}}</span>
+                                Mi carrito 
+                                <span class="circle-shopping-cart ">({{$shopping_cart->productSize()}})</span>
                             </a>
                         </li>
                         @guest
