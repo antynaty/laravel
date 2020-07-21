@@ -34,6 +34,13 @@ GET /products/:id => mostrar product especifico
 PUT /products/:id => actualizar un producto
 DELETE /products/:id => eliminar un producto
 
+*/
+Route::resource('product_shopping_carts','ProductShoppingCartsController',[
+  'only'=> ['store','destroy']
+]);
 
+/* 
+  POST /products => store
+  DELETE /products/:id  => destroy
 */
 Route::get('/home', 'HomeController@index')->name('home');

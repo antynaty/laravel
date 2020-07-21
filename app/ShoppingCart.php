@@ -9,10 +9,11 @@ class ShoppingCart extends Model
     //
     protected $fillable = ["status"];
     
-    public function product_shoping_carts(){
+    public function productShopingCarts(){
         return $this->hasMany('App\ProductShoppingCarts');
     }
     public function products(){
+        // select count sobre la cantidad de productos que trae esta relacion via tabla pivote
         return $this->belongsToMany('App\Product','product_shopping_carts');
     }
     public function productSize(){
