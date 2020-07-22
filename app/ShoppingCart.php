@@ -9,6 +9,9 @@ class ShoppingCart extends Model
     //
     protected $fillable = ["status"];
     
+    public function shoppingCartId(){
+        return $this->id;
+    }
     public function productShopingCarts(){
         return $this->hasMany('App\ProductShoppingCarts');
     }
@@ -23,25 +26,25 @@ class ShoppingCart extends Model
         return $this->products()->sum('pricing');
     }
     public static function findOrCreateBySessionID($shopping_cart_id){
-        if($shopping_cart_id){
+        if($shopping_cart_id)
             //buscar el carrito
             return ShoppingCart::findBySession($shopping_cart_id);
-        }else{
+        else
             //crear el carrito
             return ShoppingCart::createWithoutSession();
-        }
+    
     }
     public static function findBySession($shopping_cart_id){
         return ShoppingCart::find($shopping_cart_id);   
     }
     public static function createWithoutSession(){
-        return ShoppingCart::create([
-            "status"=>"incompleted"
-        ]);
-        // $shopping_cart = new ShoppingCart;
+        // return ShoppingCart::create([
+        //     "status"=>"incompleted"
+        // ]);
+        $shopping_cart = new ShoppingCart;
 
-        // $shopping_cart -> status = "incompleted";
-        // $shopping_cart->save();
-        // return $shopping_cart;   
+        $shopping_cart -> status = "incompleted";
+        $shopping_cart->save();
+        return $shopping_cart;   
     }
 }

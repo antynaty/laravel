@@ -24,6 +24,7 @@ class ShoppingCartsController extends Controller
         return view('shopping_carts.index',[
             'total' => $total,
             'products' => $products,
+            'shopping_cart' => $shopping_cart
         ]);
     }
     
