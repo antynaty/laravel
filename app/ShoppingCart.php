@@ -19,6 +19,9 @@ class ShoppingCart extends Model
     public function productSize(){
         return $this->products()->count();
     }
+    public function total(){
+        return $this->products()->sum('pricing');
+    }
     public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id){
             //buscar el carrito
