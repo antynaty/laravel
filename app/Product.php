@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
+    // public function paypalItems(){
+    //     return \PayPal\Api;
+    // }
 }

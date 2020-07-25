@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
-
+  @if(session('status'))
+    <h3 class="text-xl md:text-2xl">
+      {{session('status')}}
+    </h3>
+  @endif
   <div class="big-padding text-center blue-grey white-text">
     <h1> Tu carrito de compras </h1>
   </div>
@@ -23,6 +27,7 @@
     </table>
   </div>
   <div class="container text-right">
+      <a class="inline-block font-semibold bg-white py-2 px-4" href="{{url('/paypal/pay')}}">Pagar con PayPal</a>
       <h1>{{$total}}</h1>
   </div>
 

@@ -25,6 +25,9 @@ class ShoppingCart extends Model
     public function total(){
         return $this->products()->sum('pricing');
     }
+    public function totalUSD(){
+        return $this->total()*850;
+    }
     public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id)
             //buscar el carrito
