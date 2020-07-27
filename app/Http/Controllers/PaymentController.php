@@ -16,17 +16,13 @@ class PaymentController extends Controller
         $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
         
         $paypal = new PayPalPayment($shopping_cart);
-        // $paypal->execute($request->paymentId,$request->PayerID);
         // realizar la comprobacion del resultado aqui
+        $result = $paypal->execute($request->paymentId,$request->PayerID);
 
-        $result = $paypal->execute($request->paymentId,$request->PayerID,$request->token);
-
-        // ******************************* AQUI ******************
         if ($result->getState() === 'approved') {
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             return redirect('/products')->with(compact('status'));
         }
-
         $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
         return redirect('/products')->with(compact('status'));
     }

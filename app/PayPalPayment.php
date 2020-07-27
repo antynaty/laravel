@@ -1,9 +1,7 @@
 <?php
 namespace App;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Validation\Rules\Unique;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Payer;
@@ -19,9 +17,9 @@ class PayPalPayment
 {
     private $apiContext;
     private $shopping_cart;
+
     // inicializar la conexion con paypal
-    public function __construct($shopping_cart)
-    // public function __construct()
+    public function __construct($shopping_cart) 
     { 
         $paypalConfig = Config::get('paypal');
 
@@ -46,7 +44,6 @@ class PayPalPayment
         try {
             $payment->create($this->apiContext);
             echo $payment;
-            // return redirect()->away($payment->getApprovalLink());
         } catch ( PayPalConnectionException $ex) {
             // This will print the detailed information on the exception.
             //REALLY HELPFUL FOR DEBUGGING
@@ -56,19 +53,11 @@ class PayPalPayment
         }
         return $payment;
     }
-
-    // public function execute(Request $request){
-    public function execute($paymentId,$payerId){
-        // // dd($request->all());
-        // $paymentId = $request->input('paymentId');
-        // $token = $request->input('token');
-        // $payerId = $request->input('PayerID');
-
+    public function execute($paymentId,$payerId){ 
         if(!$payerId || !$paymentId){
             $status = 'no se pudo realizar el pago en PayPal';
             return redirect( url('/carrito'))->with(compact('status'));
         }
-
         // if not if  generar el pago
         $payment = Payment::get($paymentId, $this->apiContext);
 
@@ -108,7 +97,6 @@ class PayPalPayment
     }
     public function amount(){
         $amount = new Amount();
-        // $amount->setTotal('3.99');
         $amount->setTotal($this->shopping_cart->totalUSD());
         $amount->setCurrency('USD');
 
