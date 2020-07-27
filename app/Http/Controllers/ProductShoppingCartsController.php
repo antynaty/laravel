@@ -47,7 +47,7 @@ class ProductShoppingCartsController extends Controller
         ]);
         
         if ($response){
-            return redirect('/carrito');
+            return redirect('/products');
         }else{
             return back();
         }

@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', 'MainController@home');
 Route::get('/carrito', 'ShoppingCartsController@index');
-Route::get('/paypal/pay','PaymentController@payWithPayPal');
-Route::get('/paypal/status','PaymentController@payPalStatus');
+Route::get('/carrito/paypal/pay','PaymentController@store');
+// Route::get('/paypal/status','PaymentController@payPalStatus');
 
 Auth::routes();
 

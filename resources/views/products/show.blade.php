@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
 <div class="container text-center">
   <div class="card product text-left">
     <div class="absolute actions" style="position: absolute;">
@@ -22,9 +20,9 @@
           <!-- <a href="" class="btn btn-success"> Agregar al carrito</a> -->
           @include('product_shopping_carts.form',
           [
-            'product'=> $product,
-            'url'=>'/product_shopping_carts',
-            ])
+          'product'=> $product,
+          'url'=>'/product_shopping_carts',
+          ])
         </p>
       </div>
     </div>

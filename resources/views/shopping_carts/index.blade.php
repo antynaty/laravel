@@ -31,6 +31,6 @@
       <h1>{{$total}}</h1>
   </div>
 
-  <h1> Shopping cart id : {{$shopping_cart->shoppingCartId()}}</h1>
-  <h1> {{$shopping_cart}}</h1>
+  <!-- <h1> Shopping cart id : {{$shopping_cart->shoppingCartId()}}</h1>
+  <h1> {{$shopping_cart}}</h1> -->
 @endsection  

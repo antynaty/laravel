@@ -26,7 +26,7 @@ class ShoppingCart extends Model
         return $this->products()->sum('pricing');
     }
     public function totalUSD(){
-        return $this->total()*850;
+        return $this->total()/850;
     }
     public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id)

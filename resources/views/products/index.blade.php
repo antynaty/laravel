@@ -1,6 +1,10 @@
 @extends("layouts.app")
-
 @section("content")
+@if(session('status'))
+  <h3 class="text-xl md:text-2xl">
+    {{session('status')}}
+  </h3>
+@endif
 <div class="big-padding text-center blue-grey white-text">
   <h1>Productos</h1>
 </div>
