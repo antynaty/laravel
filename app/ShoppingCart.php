@@ -41,13 +41,13 @@ class ShoppingCart extends Model
         return ShoppingCart::find($shopping_cart_id);   
     }
     public static function createWithoutSession(){
-        // return ShoppingCart::create([
-        //     "status"=>"incompleted"
-        // ]);
-        $shopping_cart = new ShoppingCart;
+        return ShoppingCart::create([
+            "status"=>"incompleted"
+        ]);
+        // $shopping_cart = new ShoppingCart;
 
-        $shopping_cart -> status = "incompleted";
-        $shopping_cart->save();
-        return $shopping_cart;   
+        // $shopping_cart -> status = "incompleted";
+        // $shopping_cart->save();
+        // return $shopping_cart;   
     }
 }

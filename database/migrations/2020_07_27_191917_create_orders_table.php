@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('line2')->nullable(true);
             $table->string('city');
             $table->string('postal_code');
-            $table->string('state');
+            $table->string('state')->nullable(true);
             $table->string('recipient_name');
             $table->string('email');
             $table->string('status')->default("creado");

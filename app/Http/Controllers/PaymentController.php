@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\PayPalPayment;
 use Illuminate\Support\Facades\Session;
 use App\ShoppingCart;
@@ -20,10 +21,17 @@ class PaymentController extends Controller
         $result = $paypal->execute($request->paymentId,$request->PayerID);
 
         if ($result->getState() === 'approved') {
-            $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
-            return redirect('/products')->with(compact('status'));
+            $order = Order::createFromPayPalResault($result, $shopping_cart);
+            // $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
+            // return redirect('/products')->with(compact('status'));
         }
-        $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-        return redirect('/products')->with(compact('status'));
+
+        return view('shopping_carts.completed',[
+            "shopping_cart" => $shopping_cart,
+            "order" => $order
+        ]);
+        // dd($order);
+        // $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
+        // return redirect('/products')->with(compact('status'));
     }
 }
