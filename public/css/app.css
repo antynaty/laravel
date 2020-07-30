@@ -10945,6 +10945,10 @@ a.text-dark:focus {
   padding: 30px;
 }
 
+.large-padding {
+  padding: 10px 15px;
+}
+
 .blue-grey {
   background-color: #139696;
 }

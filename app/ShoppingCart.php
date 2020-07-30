@@ -28,6 +28,22 @@ class ShoppingCart extends Model
     public function totalUSD(){
         return $this->total()/850;
     }
+    public function approved(){
+        $this->updateCustomID();
+    }
+    public function generateCustomID(){
+            //  md5(5 + 1020304050:4342)
+        return md5("$this->id $this->updated_at");
+    }
+    public function updateCustomID(){
+        // update shopping cart status and update custom id 
+        $this->status="approved";
+        $this->custom_id = $this->generateCustomID();
+        $this->save();
+    }
+    public function order(){
+        return $this->hasOne("App\Order")->first();
+    }
     public static function findOrCreateBySessionID($shopping_cart_id){
         if($shopping_cart_id)
             //buscar el carrito

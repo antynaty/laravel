@@ -38,8 +38,11 @@ PUT /products/:id => actualizar un producto
 DELETE /products/:id => eliminar un producto
 
 */
-Route::resource('product_shopping_carts','ProductShoppingCartsController',[
+Route::resource('/product_shopping_carts','ProductShoppingCartsController',[
   'only'=> ['store','destroy']
+]);
+Route::resource('/compras','ShoppingCartsController',[
+  'only'=> ['show']
 ]);
 
 /* 

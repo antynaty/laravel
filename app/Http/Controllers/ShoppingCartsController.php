@@ -33,8 +33,13 @@ class ShoppingCartsController extends Controller
         // ]);
     }
     
-    public function show(){
-        // crear futuro 
-        
+    public function show($id){
+        // 
+        $shopping_cart = ShoppingCart::where('custom_id',$id)->first();
+        $order = $shopping_cart->order();
+        return view('shopping_carts.completed',[
+            "order" => $order,
+            "shopping_cart" =>$shopping_cart
+        ]);
     }
 }
