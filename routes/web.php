@@ -41,10 +41,10 @@ DELETE /products/:id => eliminar un producto
 Route::resource('/product_shopping_carts','ProductShoppingCartsController',[
   'only'=> ['store','destroy']
 ]);
-Route::resource('/compras','ShoppingCartsController',[
+Route::resource('compras','ShoppingCartsController',[
   'only'=> ['show']
 ]);
-
+// Route::get('/compras','ShoppingCartsController@show');
 /* 
   POST /products => store
   DELETE /products/:id  => destroy

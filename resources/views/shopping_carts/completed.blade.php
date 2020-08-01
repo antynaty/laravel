@@ -8,7 +8,7 @@
 <div class="big-padding text-center blue-grey white-text">
   <h1> Estado de tu compra</h1>
 </div>
-{{$shopping_cart->shoppingCartId()}}
+{{$shopping_cart->shoppingCartID()}}
 <div class="container">
   <div class="card large-padding">
     <h3>Tu pago ha sido procesado <span class="{{$order->status}}">nada{{$order->status}}</span> </h3>
@@ -35,7 +35,7 @@
         <div class="col-6">{{ $order->country_code}}</div>
       </div>
       <div class="text-center">
-        <a href="{{url('/compras/'.$shopping_cart->custom_id)}}">Confimrar datos</a>
+        <a href="{{url('/compras/'.$shopping_cart->custom_id)}}">Link de tu orden</a>
       </div>
     </div>
 

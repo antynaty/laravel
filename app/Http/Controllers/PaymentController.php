@@ -20,8 +20,8 @@ class PaymentController extends Controller
         // realizar la comprobacion del resultado aqui
         $result = $paypal->execute($request->paymentId,$request->PayerID);
 
-        if ($result->getState() === 'approved') {
-            Session::remove("shopping_cart_id");
+        if ($result->state === 'approved') {
+            // Session::remove("shopping_cart_id");
             $order = Order::createFromPayPalResault($result, $shopping_cart);
             // $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             // return redirect('/products')->with(compact('status'));

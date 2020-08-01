@@ -39,7 +39,7 @@ class ShoppingCartsController extends Controller
         $order = $shopping_cart->order();
         return view('shopping_carts.completed',[
             "order" => $order,
-            "shopping_cart" =>$shopping_cart
+            "shopping_cart" => $shopping_cart
         ]);
     }
 }

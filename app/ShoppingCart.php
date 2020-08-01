@@ -48,7 +48,7 @@ class ShoppingCart extends Model
         if($shopping_cart_id)
             //buscar el carrito
             return ShoppingCart::findBySession($shopping_cart_id);
-        else
+        else if(!$shopping_cart_id)
             //crear el carrito
             return ShoppingCart::createWithoutSession();
     
