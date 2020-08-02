@@ -10996,6 +10996,18 @@ strong {
   font-weight: bold;
 }
 
+.sale-data {
+  padding: 1em;
+  text-align: center;
+  border-right: solid 1px #222;
+}
+
+.sale-data span {
+  display: block;
+  font-size: 2.2em;
+  color: #3f51b5;
+}
+
 .product {
   width: 600px;
   max-width: 100%;
@@ -11011,5 +11023,9 @@ strong {
 .product .actions {
   right: 1em;
   top: 10px;
+}
+
+.creado {
+  background-color: #d4e157;
 }
 

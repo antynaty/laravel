@@ -14,6 +14,17 @@ class Order extends Model
     public function address(){
         return "$this->line1 $this->line2";
     }
+    /*                      SCOPES                      */
+    public function scopeLatest($query){
+        return $query->orderID->monthly;
+    }
+    public function scopeOrderID($query){
+        return $query->orderBy("id","desc");
+    }
+    public function scopeMonthly($query){
+        return $query->whereMonth('created_at','=',date('m'));
+    }
+    /*                      STATIC FUNCTIONS                      */
     public static function createFromPayPalResault($result, $shopping_cart){
         // hashear response
         // dd($result);
@@ -29,13 +40,14 @@ class Order extends Model
         // crear el objeto de la orden, create puede recibir un hash de datos :  usar MASS ASIGNMENT
         return Order::create($orderData);
     }
-    public function scopeLatest($query){
-        return $query->orderID->monthly;
+    public static function totalMonth(){
+        //
+        return Order::monthly()->sum("total");
     }
-    public function scopeOrderID($query){
-        return $query->orderBy("id","desc");
+    public static function totalMonthCount(){
+        //
+        echo(Order::monthly()->count("country_code"));
+        return Order::monthly()->count();
     }
-    public function scopeMonthly($query){
-        return $query->where("created_at","=",date('m'));
-    }
+
 }

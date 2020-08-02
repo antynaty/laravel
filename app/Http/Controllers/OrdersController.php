@@ -16,8 +16,13 @@ class OrdersController extends Controller
         //
         // $orders = Order::find();
         $orders = Order::latest()->get();
+        $totalMonth = Order::totalMonth();
+        $totalMonthCount = Order::totalMonthCount();
+        echo($totalMonthCount);
         return view('orders.index',[
-            'orders' => $orders
+            'orders' => $orders,
+            'total_month' => $totalMonth,
+            'total_month_count' => $totalMonthCount,
         ]);
     }
 
