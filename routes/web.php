@@ -44,6 +44,9 @@ Route::resource('/product_shopping_carts','ProductShoppingCartsController',[
 Route::resource('compras','ShoppingCartsController',[
   'only'=> ['show']
 ]);
+Route::resource('ordenes','OrdersController',[
+  'only'=> ['index','update']
+]);
 // Route::get('/compras','ShoppingCartsController@show');
 /* 
   POST /products => store

@@ -29,7 +29,7 @@ class ShoppingCartProvider extends ServiceProvider
         //
         // View::composer("*", function($view){
         View::composer([
-            'home','main.home','welcome','shopping_carts.completed','shopping_carts.index',
+            'home','main.home','welcome','layouts.app','shopping_carts.completed','shopping_carts.index',
             'products.index','products.show','products.create','products.edit','products.edit'
         ], function($view){
             $shopping_cart_id = Session::get("shopping_cart_id");

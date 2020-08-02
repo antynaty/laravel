@@ -29,4 +29,13 @@ class Order extends Model
         // crear el objeto de la orden, create puede recibir un hash de datos :  usar MASS ASIGNMENT
         return Order::create($orderData);
     }
+    public function scopeLatest($query){
+        return $query->orderID->monthly;
+    }
+    public function scopeOrderID($query){
+        return $query->orderBy("id","desc");
+    }
+    public function scopeMonthly($query){
+        return $query->where("created_at","=",date('m'));
+    }
 }
