@@ -36,6 +36,13 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $order = Order::find($id);
+        $field = $request->name;
+        $order->$field = $request->value;
+
+        $order->save();
+        return $order->$field;
     }
 
+    
 }

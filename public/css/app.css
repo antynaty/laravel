@@ -11029,3 +11029,20 @@ strong {
   background-color: #d4e157;
 }
 
+.glyphicon-ok:before {
+  content: "\F00C";
+}
+
+.glyphicon-remove:before {
+  content: "\F00D";
+}
+
+.glyphicon {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
