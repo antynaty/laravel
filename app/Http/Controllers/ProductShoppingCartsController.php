@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ProductShoppingCartsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("shoppingcart");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,8 +42,10 @@ class ProductShoppingCartsController extends Controller
     public function store(Request $request)
     {
         //
-        $shopping_cart_id = Session::get('shopping_cart_id');
-        $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
+        // $shopping_cart_id = Session::get('shopping_cart_id');
+        // $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
+        $shopping_cart = $request->shopping_cart;
+        
         // dd($shopping_cart_id);
         $response = ProductShoppingCart::create([
             'product_id' => $request->product_id,
@@ -47,7 +53,7 @@ class ProductShoppingCartsController extends Controller
         ]);
         
         if ($response){
-            return redirect('/products');
+            return redirect('/carrito');
         }else{
             return back();
         }

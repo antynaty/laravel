@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
+    public function __construct(){
+        $this->middleware("auth");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,12 +40,10 @@ class OrdersController extends Controller
     {
         //
         $order = Order::find($id);
-        $field = $request->name;
-        $order->$field = $request->value;
+        $field = $request->name;        // name como {stauts o guide_number}
+        $order->$field = $request->value;  // usar la variable $field como el nombre del atributo a modificar - lo permite PHP - y asignarle lo que venga en el campo value
 
-        $order->save();
+        $order->save(); 
         return $order->$field;
-    }
-
-    
+    }    
 }
