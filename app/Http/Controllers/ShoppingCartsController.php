@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ShoppingCart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use App\PayPalPayment;
+use App\Mail\OrderCreated;
+use Illuminate\Support\Facades\Mail;
 
 class ShoppingCartsController extends Controller
 {
@@ -14,7 +14,9 @@ class ShoppingCartsController extends Controller
     {
         $this->middleware("shoppingcart");
     }
+
     public function index(Request $request){
+        Mail::to("n.vergara92@gmail.com")->send(new OrderCreated());
         // 
         // $shopping_cart_id = Session::get('shopping_cart_id');
         // $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
