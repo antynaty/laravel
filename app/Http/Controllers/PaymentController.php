@@ -31,6 +31,7 @@ class PaymentController extends Controller
             // $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             // return redirect('/products')->with(compact('status'));
             $shopping_cart->approved();
+            $order->sendMail();
         }
 
         return view('shopping_carts.completed',[
