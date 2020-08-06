@@ -26,12 +26,14 @@ class PaymentController extends Controller
         $result = $paypal->execute($request->paymentId,$request->PayerID);
 
         if ($result->state === 'approved') {
-            // Session::remove("shopping_cart_id");
+            // Session::remove("shopping_cart_id");     // Problemas al ejecutar el link
             $order = Order::createFromPayPalResault($result, $shopping_cart);
             // $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             // return redirect('/products')->with(compact('status'));
             $shopping_cart->approved();
             $order->sendMail();
+        } else {
+            # Si la respuesta del pago es 'canceled'///ALGO ASÍ, entonces debe mostrar un mensaje flash en la página con el error del pago no procesado
         }
 
         return view('shopping_carts.completed',[

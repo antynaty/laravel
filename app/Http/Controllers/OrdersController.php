@@ -44,6 +44,7 @@ class OrdersController extends Controller
         $order->$field = $request->value;  // usar la variable $field como el nombre del atributo a modificar - lo permite PHP - y asignarle lo que venga en el campo value
 
         $order->save(); 
+        // $order->sendUpdatedMail();
         return $order->$field;
     }    
 }

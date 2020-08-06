@@ -106,7 +106,7 @@ class PayPalPayment
     public function redirectUrls(){
         $callbackUrl = url('/carrito');
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("$callbackUrl/paypal/pay")
+        $redirectUrls->setReturnUrl("$callbackUrl/paypal/store")
             ->setCancelUrl(url($callbackUrl));
         
         return $redirectUrls;

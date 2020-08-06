@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model; 
 use App\Mail\OrderCreated;
+use App\Mail\OrderUpdated;
 use Illuminate\Support\Facades\Mail;
 
 class Order extends Model
@@ -19,6 +20,9 @@ class Order extends Model
     public function shopping_cart(){
         return $this->belongsTo('App\ShoppingCart');
     }
+    public function shoppingCartCustomId(){
+        return $this->shopping_cart->custom_id;
+    }
     /*                      SCOPES                      */
     public function scopeLatest($query){
         return $query->orderID->monthly;
@@ -31,7 +35,11 @@ class Order extends Model
     }
     public function sendMail(){
         Mail::to("n.vergara92@gmail.com")->send(new OrderCreated($this));    // pasarle el objeto Order
-        // Mail::to($this->email)->send(new OrderCreated());
+        // Mail::to($this->email)->send(new OrderCreated($this));
+    }
+    public function sendUpdatedMail(){
+        Mail::to("n.vergara92@gmail.com")->send(new OrderUpdated($this));    // pasarle el objeto Order
+        // Mail::to($this->email)->send(new OrderCreated($this));
     }
     /*                      STATIC FUNCTIONS                      */
     public static function createFromPayPalResault($result, $shopping_cart){

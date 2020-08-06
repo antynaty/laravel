@@ -11,7 +11,7 @@
 {{$shopping_cart->shoppingCartID()}}
 <div class="container">
   <div class="card large-padding">
-    <h3>Tu pago ha sido procesado <span class="{{$order->status}}">nada{{$order->status}}</span> </h3>
+    <h3>Tu pago ha sido procesado <span class="{{$order->status}}">{{$order->status}}</span> </h3>
     <p>Corrobora los detalles de tu envio</p>
     <div class="container">
       <div class="row large-padding">

@@ -27,7 +27,7 @@
     </table>
   </div>
   <div class="container text-right">
-      <a class="inline-block font-semibold bg-white py-2 px-4" href="{{url('/paypal/pay')}}">Pagar con PayPal</a>
+      <a class="inline-block font-semibold bg-white py-2 px-4" href="{{url('carrito/checkout')}}">Pagar con PayPal</a>
       <h1>{{$total}}</h1>
   </div>
 

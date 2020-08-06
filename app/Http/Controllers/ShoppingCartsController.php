@@ -16,11 +16,11 @@ class ShoppingCartsController extends Controller
 
     public function index(Request $request){
         $shopping_cart = $request->shopping_cart;           // middleware    EX manual session get
-        // /*     M O V E R    A    O T R O   C O N T R O L A D O R 
-        $paypal = new PayPalPayment($shopping_cart);
-        $payment = $paypal->generate();
+        // /*     M O V E R    A    O T R O   C O N T R O L A D O R el direccionamiento a paypal 
+        // $paypal = new PayPalPayment($shopping_cart);
+        // $payment = $paypal->generate();
         
-        return redirect($payment->getApprovalLink());
+        // return redirect($payment->getApprovalLink());
         // */ 
 
         $products = $shopping_cart->products()->get(); // obtener los productos del carro
@@ -42,5 +42,12 @@ class ShoppingCartsController extends Controller
             "order" => $order,
             "shopping_cart" => $shopping_cart
         ]);
+    }
+    public function checkout(Request $request){
+        $shopping_cart = $request->shopping_cart;
+        $paypal = new PayPalPayment($shopping_cart);
+        $payment = $paypal->generate();
+
+        return redirect($payment->getApprovalLink());
     }
 }

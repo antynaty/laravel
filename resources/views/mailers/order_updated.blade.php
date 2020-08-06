@@ -579,9 +579,9 @@
                         <tr>
                           <td valign="top" class="bodyContent">
                             <div mc:edit="std_content00">
-                              <h1>Se ha generado la orden de compra en Shopfy con monto total : {{$order->total}}</h1>
+                              <h1>Se ha actualizado la orden de compra en Shopfy</h1>
                               <strong>Hola {{$order->email}}</strong>
-                               <p>Transactional emails serve a defined and simple purpose. They differ from traditional mass-emails because they're generally sent on a user-by-user basis, instead of large list of users, and are generally used to deliver purchase receipts, account updates, security notifications, and more.</p>
+                               <p>Revisa a continuación los detalles : </p>
                             </div>
                           </td>
                         </tr>
@@ -590,23 +590,44 @@
                             <table border="0" cellpadding="10" cellspacing="0" width="100%" class="templateDataTable">
                               <tr>
                                 <th scope="col" valign="top" width="25%" class="dataTableHeading" mc:edit="data_table_heading00">
-                                  Producto
+                                  Información 
                                 </th>
                                 <th scope="col" valign="top" width="25%" class="dataTableHeading" mc:edit="data_table_heading01">
-                                  Valor
+                                  Estado
                                 </th>
                               </tr>
-                              @foreach($products as $product)
                               <tr mc:repeatable>
                                 <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$product->title}}
+                                 Numero guia
                                 </td>
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content01">
-                                  {{$product->pricing}}
-                                </td>
+`                                <td valign="top" class="dataTableContent" mc:edit="data_table_content01">
+                                {{$order->guide_number}} 
                                 </td>
                               </tr>
-                              @endforeach
+                              <tr mc:repeatable>
+                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
+                                 Estado
+                                </td>
+`                                <td valign="top" class="dataTableContent" mc:edit="data_table_content01">
+                                {{$order->status}} 
+                                </td>
+                              </tr>
+                              <tr mc:repeatable>
+                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
+                                 Direccion
+                                </td>
+`                                <td valign="top" class="dataTableContent" mc:edit="data_table_content01">
+                                  {{$order->address()}}
+                                </td>
+                              </tr>
+                              <tr mc:repeatable>
+                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
+                                 Nombre receptor
+                                </td>
+`                                <td valign="top" class="dataTableContent" mc:edit="data_table_content01">
+                                  {{$order->recipient_name}}
+                                </td>
+                              </tr>
                             </table>
                             <tr>
                               <td valign="top" class="bodyContent">
@@ -615,54 +636,12 @@
                                 </div>
                               </td>
                             </tr>
-                            <table border="0" cellpadding="10" cellspacing="0" width="100%" class="templateDataTable">
-                              <tr>
-                                <th scope="col" valign="top" width="25%" class="dataTableHeading" mc:edit="data_table_heading00">
-                                Nombre Receptor
-                                </th>
-                                <th scope="col" valign="top" width="25%" class="dataTableHeading" mc:edit="data_table_heading01">
-                                Dirección
-                                </th>
-                                <th scope="col" valign="top" width="50%" class="dataTableHeading" mc:edit="data_table_heading02">
-                                País, Ciudad
-                                </th>
-                                <th scope="col" valign="top" width="50%" class="dataTableHeading" mc:edit="data_table_heading02">
-                                Código Postal
-                                </th>
-                                <th scope="col" valign="top" width="50%" class="dataTableHeading" mc:edit="data_table_heading02">
-                                Total
-                                </th>
-                                <th scope="col" valign="top" width="50%" class="dataTableHeading" mc:edit="data_table_heading02">
-                                Numero seguimiento
-                                </th>
-                              </tr>
-                              <tr mc:repeatable>
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$order->recipient_name}}
-                                </td>
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$order->line1}} {{$order->line2}} 
-                                </td>
-                                {{$order->state}} {{  $order->country_code}} 
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$order->postal_code}} 
-                                </td>
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$order->total}} 
-                                </td>
-                                <td valign="top" class="dataTableContent" mc:edit="data_table_content00">
-                                  {{$order->guide_number}} 
-                                </td>
-                              </tr>
-                            </table>
                           </td>
                         </tr>
                         <tr>
                           <td valign="top" class="bodyContent">
                             <div mc:edit="std_content01">
-                              Entra aquí en el lin a continuación
-                              para obtener la inforamción de tu compra.
-                              
+                              Si algun dato esta erroneo, comunicate con contacto de Shopfy.
                             </div>
                           </td>
                         </tr>
