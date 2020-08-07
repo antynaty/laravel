@@ -11029,6 +11029,10 @@ strong {
   background-color: #d4e157;
 }
 
+.product-container .product {
+  margin-top: 1em;
+}
+
 .product-avatar {
   max-width: 100%;
 }
