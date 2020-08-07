@@ -9,7 +9,11 @@
     </div>
     <h1>{{$product->title}}</h1>
     <div class="row">
-      <div class="col-sm-6 col-xs-12"></div>
+      <div class="col-sm-6 col-xs-12">
+        @if($product->extension)
+          <img src="{{url("products/images/$product->id.$product->extension")}}" alt="Product_IMG" class="product-avatar">
+        @endif
+      </div>
       <div class="col-sm-6 col-xs-12">
         <p>
           <strong style="font-weight: bold">Descripción</strong>

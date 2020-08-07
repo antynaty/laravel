@@ -29,6 +29,7 @@
         <td>
           <a href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
           @include('products.delete',['product' => $product])
+          <a href="{{url('/products/'.$product->id)}}">Ver</a>
         </td>
       </tr>
       @endforeach

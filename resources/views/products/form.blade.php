@@ -1,9 +1,12 @@
-<form action="{{url($url)}}" method="POST">
+<form action="{{url($url)}}" method="POST" enctype="multipart/form-data">
   @csrf
   @method($method)
   <div class="container">
     <div class="form-group">
       <input class="form-control" value="{{$product->title}}" type="text" name="title" placeholder="Nombre">
+    </div>
+    <div class="form-group">
+      <input type="file"  name="product_image" class="custom-input-file" id="inputGroup"  required>
     </div>
     <div class="form-group">
       <textarea class="form-control" rows="5" id="description" name="description" placeholder="Descripcion">{{$product->description}}</textarea>

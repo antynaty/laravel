@@ -11029,6 +11029,10 @@ strong {
   background-color: #d4e157;
 }
 
+.product-avatar {
+  max-width: 100%;
+}
+
 .glyphicon-ok:before {
   content: "\F00C";
 }
