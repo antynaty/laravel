@@ -11033,6 +11033,11 @@ strong {
   margin-top: 1em;
 }
 
+.product-pagination {
+  margin-top: 10px !important;
+  align-items: center !important;
+}
+
 .product-avatar {
   max-width: 100%;
 }

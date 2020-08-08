@@ -18,4 +18,8 @@ class Product extends Model
 
         return $item;
     }
+    /*      S C O P E S      */
+    public function scopeLatest($query){
+        return $query->orderBy("id","desc");
+    }
 }
