@@ -132,10 +132,13 @@ $(document).ready(function () {
       beforeSend: function beforeSend() {
         button.val("Cargando...");
       },
-      success: function success() {
+      success: function success(data) {
         button.css({
-          backgroundColor: '#19611a'
+          backgroundColor: '#19611a',
+          color: 'white'
         }).val("Agregado");
+        console.log(data);
+        $(".circle-shopping-cart").html(data.products_count);
         setTimeout(function () {
           resetButton(button);
         }, 2000);
@@ -143,15 +146,22 @@ $(document).ready(function () {
       error: function error(err) {
         console.log(err);
         button.css({
-          backgroundColor: '#911810'
+          backgroundColor: '#911810',
+          color: 'white'
         }).val("Error al agregar");
+        setTimeout(function () {
+          resetButton(button);
+        }, 2000);
       }
     });
     return false;
   });
 
   function resetButton($button) {
-    $button.val("Agregar al carrito").attr("style", "");
+    $button.val("Agregar al carrito").css({
+      backgroundColor: 'steelblue',
+      color: 'white'
+    });
   }
 });
 

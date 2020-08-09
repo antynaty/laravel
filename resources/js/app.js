@@ -33,21 +33,24 @@ $(document).ready(function(){
             beforeSend : function () {
                 button.val("Cargando...");
             },
-            success : function () {
-                button.css({backgroundColor:'#19611a'}).val("Agregado");
+            success : function (data) {
+                button.css({backgroundColor:'#19611a',color : 'white'}).val("Agregado");
+                console.log(data);
+                $(".circle-shopping-cart").html(data.products_count);
                 setTimeout(() => {
                     resetButton(button);
                 }, 2000);
             },
             error : function (err) {
                 console.log(err);
-                button.css({backgroundColor:'#911810'}).val("Error al agregar");
+                button.css({backgroundColor:'#911810', color: 'white'}).val("Error al agregar");setTimeout(() => {
+                    resetButton(button);
+                }, 2000);
             }
         });
         return false
     });
     function resetButton($button) {
-        $button.val("Agregar al carrito").attr("style","")
+        $button.val("Agregar al carrito").css({backgroundColor:'steelblue', color: 'white'});
     }
 });
-

@@ -42,8 +42,6 @@ class ProductShoppingCartsController extends Controller
     public function store(Request $request)
     {
         //
-        // $shopping_cart_id = Session::get('shopping_cart_id');
-        // $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
         $shopping_cart = $request->shopping_cart;
         
         // dd($shopping_cart_id);
@@ -52,6 +50,11 @@ class ProductShoppingCartsController extends Controller
             'shopping_cart_id' => $shopping_cart->id,
         ]);
         
+        if($request->ajax()){
+            return response()->json([
+                'products_count' => ProductShoppingCart::productsCount($shopping_cart->id)
+            ]);
+        }
         if ($response){
             return redirect('/carrito');
         }else{
