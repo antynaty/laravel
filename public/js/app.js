@@ -116,6 +116,43 @@ $(document).ready(function () {
       text: 'Recibido'
     }]
   });
+  $(".add-to-cart").on("submit", function (event) {
+    event.preventDefault();
+    form = $(this);
+    button = form.find("[type='submit']"); // myData = $('form').find('input[name="product_id"]').val();  // no codificado
+
+    $.ajax({
+      url: form.attr("action"),
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      method: form.attr("method"),
+      data: form.serialize(),
+      dataType: "JSON",
+      beforeSend: function beforeSend() {
+        button.val("Cargando...");
+      },
+      success: function success() {
+        button.css({
+          backgroundColor: '#19611a'
+        }).val("Agregado");
+        setTimeout(function () {
+          resetButton(button);
+        }, 2000);
+      },
+      error: function error(err) {
+        console.log(err);
+        button.css({
+          backgroundColor: '#911810'
+        }).val("Error al agregar");
+      }
+    });
+    return false;
+  });
+
+  function resetButton($button) {
+    $button.val("Agregar al carrito").attr("style", "");
+  }
 });
 
 /***/ }),
