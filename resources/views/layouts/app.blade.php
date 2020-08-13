@@ -44,7 +44,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Shopfy') }}
@@ -60,12 +60,12 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto navbar-right ">
+                    <ul class="navbar-nav ml-auto ">
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a href="{{url('/carrito')}}" class="nav-link">
                                 Mi carrito
-                                <span class="circle-shopping-cart ">({{$shopping_cart->productSize()}})</span>
+                                <span class="circle-shopping-cart ">{{$shopping_cart->productSize()}}</span>
                             </a>
                         </li>
                         @guest

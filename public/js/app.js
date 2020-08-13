@@ -138,7 +138,7 @@ $(document).ready(function () {
           color: 'white'
         }).val("Agregado");
         console.log(data);
-        $(".circle-shopping-cart").html(data.products_count);
+        $(".circle-shopping-cart").html(data.products_count).addClass("highlight");
         setTimeout(function () {
           resetButton(button);
         }, 2000);
@@ -162,6 +162,7 @@ $(document).ready(function () {
       backgroundColor: 'steelblue',
       color: 'white'
     });
+    $(".circle-shopping-cart").removeClass("highlight");
   }
 });
 

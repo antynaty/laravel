@@ -36,7 +36,7 @@ $(document).ready(function(){
             success : function (data) {
                 button.css({backgroundColor:'#19611a',color : 'white'}).val("Agregado");
                 console.log(data);
-                $(".circle-shopping-cart").html(data.products_count);
+                $(".circle-shopping-cart").html(data.products_count).addClass("highlight");
                 setTimeout(() => {
                     resetButton(button);
                 }, 2000);
@@ -52,5 +52,6 @@ $(document).ready(function(){
     });
     function resetButton($button) {
         $button.val("Agregar al carrito").css({backgroundColor:'steelblue', color: 'white'});
+        $(".circle-shopping-cart").removeClass("highlight");
     }
 });
